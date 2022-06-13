@@ -27,6 +27,7 @@ export class UserController {
 
       return {
         success: true,
+        userId: user.id,
         accesToken: this.jwtService.sign({
           username: user.username,
           sub: user.id,

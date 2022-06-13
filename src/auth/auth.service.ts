@@ -23,6 +23,7 @@ export class AuthService {
     const paylod = { username: user.username, sub: user.id };
     return {
       accessToken: this.jwtService.sign(paylod),
+      userId: user.id,
     };
   }
 }
