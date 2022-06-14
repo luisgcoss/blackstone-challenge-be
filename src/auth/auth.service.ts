@@ -14,13 +14,17 @@ export class AuthService {
     const user = await this.userService.findOne(username);
     if (user && (await bcrypt.compare(pass, user.password))) {
       const { password, ...result } = user;
-      return result;
+      return { success: true, ...result };
     }
-    return null;
+    if (user) {
+      return { success: false, message: 'Password incorrect' };
+    }
+    return { success: false, message: 'User not found' };
   }
 
   async login(user: any) {
     const paylod = { username: user.username, sub: user.id };
+
     return {
       accessToken: this.jwtService.sign(paylod),
       userId: user.id,
