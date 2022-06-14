@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { UserService } from './user.service';
-import { TodoModule } from 'src/todo/todo.module';
+import { TodoModule } from '../todo/todo.module';
 import { UserController } from './user.controller';
 import { TodosUserController } from './todos.controller';
 import { PrismaService } from '../providers/prisma.service';
-import { JwtModule, JwtService } from '@nestjs/jwt';
-import { jwtConstants } from 'src/auth/constants';
+import { JwtModule } from '@nestjs/jwt';
+import { jwtConstants } from '../auth/constants';
 
 @Module({
   imports: [

@@ -10,7 +10,7 @@ import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
-import { Public } from 'src/auth/decorators';
+import { Public } from '../auth/decorators';
 @Controller('user')
 export class UserController {
   constructor(
